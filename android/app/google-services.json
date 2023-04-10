@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "4693016504",
+    "project_id": "qh-jordan",
+    "storage_bucket": "qh-jordan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4693016504:android:c835a52d5b0bdb5beb994d",
+        "android_client_info": {
+          "package_name": "com.alfarah.solutions.qhjordan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4693016504-9u5p9res8a9c4pdh4joek3nq740329bp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alfarah.solutions.qhjordan",
+            "certificate_hash": "f68250766e059b6f6c484498aeb82faa005a5c72"
+          }
+        },
+        {
+          "client_id": "4693016504-77ta77k7jf18qinsejppvb7vda6tcd1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAewcAWyQUxSbfd564BQOdRqKmwNAiyWY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4693016504-77ta77k7jf18qinsejppvb7vda6tcd1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

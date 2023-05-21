@@ -15,7 +15,7 @@ import '../../custom_snackbar.dart';
 
 class LanguageHoverWidget extends StatefulWidget {
   final List<LanguageModel> languageList;
-  const LanguageHoverWidget({Key key, @required this.languageList}) : super(key: key);
+  const LanguageHoverWidget({Key? key, required this.languageList}) : super(key: key);
 
   @override
   State<LanguageHoverWidget> createState() => _LanguageHoverWidgetState();

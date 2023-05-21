@@ -45,7 +45,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-AndroidNotificationChannel channel;
+AndroidNotificationChannel? channel;
 Future<void> main() async {
   if (ResponsiveHelper.isMobilePhone()) {
     HttpOverrides.global = new MyHttpOverrides();
@@ -73,7 +73,7 @@ Future<void> main() async {
     );
   }
   await di.init();
-  int _orderID;
+  int? _orderID;
   try {
     if (!kIsWeb) {
       channel = const AndroidNotificationChannel(
@@ -82,11 +82,11 @@ Future<void> main() async {
         importance: Importance.high,
       );
     }
-    final RemoteMessage remoteMessage =
+    final RemoteMessage? remoteMessage =
         await FirebaseMessaging.instance.getInitialMessage();
     if (remoteMessage != null) {
-      _orderID = remoteMessage.notification.titleLocKey != null
-          ? int.parse(remoteMessage.notification.titleLocKey)
+      _orderID = remoteMessage.notification?.titleLocKey != null
+          ? int.parse(remoteMessage.notification!.titleLocKey!)
           : null;
     }
     await NotificationHelper.initialize(flutterLocalNotificationsPlugin);
@@ -118,14 +118,14 @@ Future<void> main() async {
       ChangeNotifierProvider(create: (context) => di.sl<NewsLetterProvider>()),
       ChangeNotifierProvider(create: (context) => di.sl<WishListProvider>()),
     ],
-    child: MyApp(orderID: _orderID, isWeb: !kIsWeb),
+    child: MyApp(orderID: _orderID!, isWeb: !kIsWeb),
   ));
 }
 
 class MyApp extends StatefulWidget {
   final int orderID;
   final bool isWeb;
-  MyApp({@required this.orderID, @required this.isWeb});
+  MyApp({required this.orderID, required this.isWeb});
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -213,7 +213,7 @@ class _MyAppState extends State<MyApp> {
 
 class MyHttpOverrides extends HttpOverrides {
   @override
-  HttpClient createHttpClient(SecurityContext context) {
+  HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
       ..badCertificateCallback =
           (X509Certificate cert, String host, int port) => true;
@@ -221,6 +221,6 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 class Get {
-  static BuildContext get context => navigatorKey.currentContext;
-  static NavigatorState get navigator => navigatorKey.currentState;
+  static BuildContext? get context => navigatorKey.currentContext;
+  static NavigatorState? get navigator => navigatorKey.currentState;
 }

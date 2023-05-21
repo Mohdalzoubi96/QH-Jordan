@@ -41,7 +41,7 @@ class WebAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _WebAppBarState extends State<WebAppBar> {
-  String chooseLanguage;
+  String chooseLanguage = '';
 
   List<PopupMenuEntry<Object>> popUpMenuList(BuildContext context) {
     List<PopupMenuEntry<Object>> list = <PopupMenuEntry<Object>>[];
@@ -77,11 +77,11 @@ class _WebAppBarState extends State<WebAppBar> {
   _showPopupMenu(Offset offset, BuildContext context, bool isCategory) async {
     double left = offset.dx;
     double top = offset.dy;
-    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+    final RenderBox? overlay = Overlay.of(context).context.findRenderObject();
     await showMenu(
       context: context,
       position: RelativeRect.fromLTRB(
-          left, top, overlay.size.width, overlay.size.height),
+          left, top, overlay!.size.width, overlay.size.height),
       items: isCategory ? popUpMenuList(context) : popUpLanguageList(context),
       elevation: 8.0,
       shape: RoundedRectangleBorder(
